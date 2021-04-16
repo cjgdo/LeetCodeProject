@@ -1,0 +1,13 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        half_len=len(nums)/2
+        num_indexes = {}
+        for i in range(len(nums)):
+         if nums[i] not in num_indexes:
+          num_indexes[nums[i]] = [i]
+         else:
+          num_indexes[nums[i]].append(i)
+        for j in num_indexes:
+          #print(len(num_indexes[j]))
+         if len(num_indexes[j])>half_len:
+           return j
